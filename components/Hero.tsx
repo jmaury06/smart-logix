@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Hero() {
@@ -14,6 +17,15 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-carbon via-carbon/85 to-carbon/40" />
       <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent" />
+
+      <div
+        aria-hidden
+        className="animate-float-slow pointer-events-none absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-gold/20 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="animate-float-slow-reverse pointer-events-none absolute bottom-0 left-[5%] h-80 w-80 rounded-full bg-gold/10 blur-3xl"
+      />
 
       <div className="relative mx-auto max-w-7xl px-6 py-32 lg:px-8">
         <ScrollReveal>
@@ -39,18 +51,22 @@ export default function Hero() {
 
         <ScrollReveal delay={0.3}>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a
+            <motion.a
               href="#nosotros"
-              className="rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-carbon transition-transform hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-carbon"
             >
               Conócenos
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#contacto"
-              className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white"
             >
               Contáctanos
-            </a>
+            </motion.a>
           </div>
         </ScrollReveal>
       </div>

@@ -6,7 +6,6 @@ const LINKS = [
   { href: "/#inicio", label: "Inicio" },
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#servicios", label: "Servicios" },
-  { href: "/#equipo", label: "Equipo" },
   { href: "/#contacto", label: "Contacto" },
 ];
 
@@ -44,7 +43,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-carbon">
+    <footer className="border-t border-white/10 bg-carbon-soft">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="max-w-xs">

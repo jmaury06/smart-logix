@@ -4,7 +4,7 @@ import ScrollReveal from "./ScrollReveal";
 
 export default function Commitment() {
   return (
-    <section className="relative isolate overflow-hidden bg-carbon py-24">
+    <section className="relative isolate overflow-hidden bg-carbon-soft py-24">
       <Image
         src="/images/accent-port.webp"
         alt="Grúas portuarias al atardecer"
@@ -12,7 +12,7 @@ export default function Commitment() {
         className="object-cover opacity-25"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-carbon via-carbon/90 to-carbon" />
+      <div className="absolute inset-0 bg-gradient-to-b from-carbon-soft via-carbon-soft/90 to-carbon-soft" />
 
       <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
         <ScrollReveal>

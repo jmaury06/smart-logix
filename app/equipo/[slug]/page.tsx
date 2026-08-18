@@ -20,6 +20,8 @@ export async function generateMetadata({
   return {
     title: `${member.name} | Smart Logix SAS`,
     description: member.summary,
+    // Sección de equipo temporalmente oculta: no indexar hasta publicar perfiles reales.
+    robots: { index: false, follow: false },
   };
 }
 
@@ -34,17 +36,17 @@ export default async function TeamMemberPage({
 
   return (
     <main className="flex-1 bg-white">
-      <section className="relative isolate overflow-hidden bg-carbon py-20">
+      <section className="relative isolate overflow-hidden bg-carbon pb-20 pt-32">
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-gold/15 blur-3xl"
         />
         <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
           <Link
-            href="/#equipo"
+            href="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-gold-light"
           >
-            <ArrowLeft size={16} /> Volver al equipo
+            <ArrowLeft size={16} /> Volver al inicio
           </Link>
 
           <ScrollReveal className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">

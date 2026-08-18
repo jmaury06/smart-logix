@@ -34,7 +34,7 @@ export default function Services() {
     <section id="servicios" className="relative overflow-hidden bg-offwhite py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 top-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
+        className="animate-float-slow pointer-events-none absolute -right-32 top-10 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
       />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">

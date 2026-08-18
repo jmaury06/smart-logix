@@ -4,22 +4,25 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import Commitment from "@/components/Commitment";
-import Team from "@/components/Team";
 import Values from "@/components/Values";
 import Contact from "@/components/Contact";
+import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <Hero />
-      <ServicePillars />
-      <About />
-      <Services />
-      <WhyUs />
-      <Commitment />
-      <Team />
-      <Values />
-      <Contact />
-    </main>
+    <>
+      <OrganizationJsonLd />
+      <main className="flex-1">
+        <Hero />
+        <ServicePillars />
+        <About />
+        <Services />
+        <WhyUs />
+        <Commitment />
+        {/* Equipo: oculto hasta contar con perfiles y biografías reales del equipo */}
+        <Values />
+        <Contact />
+      </main>
+    </>
   );
 }

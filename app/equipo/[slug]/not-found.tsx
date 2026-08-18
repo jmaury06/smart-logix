@@ -11,10 +11,10 @@ export default function TeamMemberNotFound() {
         perfil ya no esté disponible.
       </p>
       <Link
-        href="/#equipo"
+        href="/"
         className="mt-8 inline-flex items-center gap-2 rounded-full bg-carbon px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gold hover:text-carbon"
       >
-        <ArrowLeft size={16} /> Volver al equipo
+        <ArrowLeft size={16} /> Volver al inicio
       </Link>
     </main>
   );

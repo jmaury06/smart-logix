@@ -34,7 +34,7 @@ export default function Values() {
     <section id="valores" className="relative overflow-hidden bg-offwhite py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
+        className="animate-float-slow-reverse pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-gold/10 blur-3xl"
       />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal className="mx-auto max-w-2xl text-center">

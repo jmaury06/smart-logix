@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
@@ -10,7 +11,6 @@ const LINKS = [
   { href: "/#nosotros", label: "Nosotros" },
   { href: "/#servicios", label: "Servicios" },
   { href: "/#por-que-elegirnos", label: "Por qué elegirnos" },
-  { href: "/#equipo", label: "Equipo" },
   { href: "/#valores", label: "Valores" },
   { href: "/#contacto", label: "Contacto" },
 ];
@@ -28,8 +28,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-shadow duration-300 ${
-        scrolled ? "border-black/5 shadow-sm" : "border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-all duration-300 ${
+        scrolled
+          ? "border-black/5 bg-white/85 shadow-sm"
+          : "border-white/10 bg-white/55"
       }`}
     >
       <nav
@@ -39,7 +41,7 @@ export default function Navbar() {
       >
         <Link href="/#inicio" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.png"
+            src="/logo-transparent.png"
             alt="Smart Logix SAS"
             width={220}
             height={107}
@@ -60,12 +62,14 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link
-          href="/#contacto"
-          className="hidden rounded-full bg-carbon px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gold hover:text-carbon lg:inline-block"
-        >
-          Contáctanos
-        </Link>
+        <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="hidden lg:block">
+          <Link
+            href="/#contacto"
+            className="rounded-full bg-carbon px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gold hover:text-carbon"
+          >
+            Contáctanos
+          </Link>
+        </motion.div>
 
         <button
           type="button"
@@ -77,29 +81,43 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {open && (
-        <div className="border-t border-black/5 bg-white px-6 py-4 lg:hidden">
-          <div className="flex flex-col gap-4">
-            {LINKS.map((link) => (
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-black/5 bg-white/95 backdrop-blur-xl lg:hidden"
+          >
+            <div className="flex flex-col gap-4 px-6 py-6">
+              {LINKS.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04, duration: 0.25 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="text-base font-medium text-carbon/80"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
               <Link
-                key={link.href}
-                href={link.href}
-                className="text-base font-medium text-carbon/80"
+                href="/#contacto"
                 onClick={() => setOpen(false)}
+                className="mt-2 rounded-full bg-carbon px-5 py-3 text-center text-sm font-semibold text-white"
               >
-                {link.label}
+                Contáctanos
               </Link>
-            ))}
-            <Link
-              href="/#contacto"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-carbon px-5 py-3 text-center text-sm font-semibold text-white"
-            >
-              Contáctanos
-            </Link>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
